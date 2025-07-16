@@ -142,7 +142,7 @@ class StochasticInterpolant(torch.nn.Module):
     def forward_sde(self, drift_fn, score_fn, diffusion_fn, x0, start=1e-3, end=1.-1e-3, n_steps=100, return_traj=True):
         """
         Simulate the forward sde for SI:
-            dXt = [drift_fn(t, Xt) + diffusion_fn(t) * score_fn(t, Xt)]dt + \sqrt{2*diffusion_fn(t)}dWt
+            dXt = [drift_fn(t, Xt) + diffusion_fn(t) * score_fn(t, Xt)]dt + sqrt{2 * diffusion_fn(t)}dWt
         """
         def sde_step(t, s, x):
             dt = s - t
